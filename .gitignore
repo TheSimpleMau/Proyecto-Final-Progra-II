@@ -4,3 +4,4 @@ venv/
 .DS_Store
 images/
 tests.py
+*.*.txt

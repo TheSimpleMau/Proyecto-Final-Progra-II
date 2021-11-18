@@ -53,6 +53,9 @@ def getting_info(link:str):
                 file.close()
             os.system('rm check_files.txt')
             with open('.just_a_forgetable_text.txt','a') as file:
+                check_links = file.readlines()
+                if f'LINK:{link}' not in check_links:
+                    file.write(f'LINK:{link}\n')
                 for formula in cleaned_math_fomula:
                     file.write(formula+'\n')
             finlas_formulas = []
