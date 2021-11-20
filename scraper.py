@@ -66,8 +66,8 @@ def getting_info(link:str):
                     line = line.replace('\n','')
                     finlas_formulas.append(line)
             return finlas_formulas
-            # return cleaned_math_fomula
-            # fullname = ''
+            # return cleaned_math_fomula 
+            # fullname = ''  
             # urllib.request.urlretrieve(image,fullname+'.svg')
             # cairosvg.svg2png(url=f"./{fullname}.svg", write_to=f"./images/{fullname}.png")
             # os.remove(f"./{fullname}.svg")

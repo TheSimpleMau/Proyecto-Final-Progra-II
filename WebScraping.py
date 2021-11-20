@@ -29,7 +29,7 @@ class GetFormulas:
         #Se crea una archivo para guardar la informacion
         self.file_with_formulas()
 
-    
+
     #Metodo para obtener los links de la formula
     def get_links(self)->list:
         #Creando una lista para guardar los links
