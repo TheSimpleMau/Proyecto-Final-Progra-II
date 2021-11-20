@@ -27,7 +27,9 @@ class GetFormulas:
         #Se guarda la informacion de la formula
         self.math_formulas = self.get_info()
         #Se crea una archivo para guardar la informacion
-        self.file_with_formulas()
+        pregunta = input('¿Desea guardar la informacion de las formulas en un archivo .txt? (y/n) ')
+        if pregunta == 'y':
+            self.file_with_formulas()
 
 
     #Metodo para obtener los links de la formula
@@ -111,31 +113,21 @@ class GetFormulas:
     #Metodo para generar un archivo con la informacion de la formulas
     def file_with_formulas(self):
         #Primero, revisamos si es que ya existe un archivo con la informacion de las formulas
-        os.system('ls -a > cheking_files.txt')
-        #Se lee el archivo
-        with open('cheking_files.txt','r') as file:
-            #Se guarda la informacion en una lista
-            lines = file.readlines()
-            #Se busca el archivo con las formulas
-            if f'.formulas para {self.to_search.lower()}.txt\n' not in lines:
-                #Se crea el archivo
-                with open(f'.formulas para {self.to_search.lower()}.txt','w') as new_file:
-                    #Se escribe primero cual fue la busqueda
-                    new_file.write(f'BUSQUEDA:{self.to_search}\n')
-                    #Se escribe la informacion en el archivo
-                    #Como cada 10 formulas se cambia de link, también se informa de a que link pertencen
-                    i = 0
-                    k = 0
-                    for formula in self.math_formulas:
-                        if i == 0 or i%10==0:
-                            new_file.write(f'FORMULAS OBTENIDAS DE:{self.getting_links[k]}\n')
-                            k += 1
-                        new_file.write(f'{formula}\n')
-                        i += 1
-                    new_file.close()
-            else:
-                #Si ya existe el archivo, simplemente se lee la informacion
-                print('El archivo ya existe')
-            file.close()
-        #Se elimina el archivo temporal
-        os.system('rm cheking_files.txt')
+        archivos = os.listdir()
+        #Se busca el archivo con las formulas
+        if f'.formulas_para_{self.to_search.lower().replace(" ","")}.txt\n' not in archivos:
+            #Se crea el archivo
+            with open(f'.formulas_para_{self.to_search.lower().replace(" ","")}.txt','w') as new_file:
+                #Se escribe primero cual fue la busqueda
+                new_file.write(f'BUSQUEDA:{self.to_search}\n')
+                #Se escribe la informacion en el archivo
+                #Como cada 10 formulas se cambia de link, también se informa de a que link pertencen
+                i = 0
+                k = 0
+                for formula in self.math_formulas:
+                    if i == 0 or i%10==0:
+                        new_file.write(f'FORMULAS OBTENIDAS DE:{self.getting_links[k]}\n')
+                        k += 1
+                    new_file.write(f'{formula}\n')
+                    i += 1
+                new_file.close()
