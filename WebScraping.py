@@ -97,8 +97,8 @@ class GetFormulas:
                                     if len(''.join(formula)) > 5:
                                         cleaned_math_fomula.append(formula)
                         #Ahora que ya tenemos las formulas, se procede a obtener solo las primeras 10 formulas
-                        if len(cleaned_math_fomula) > 10:
-                            cleaned_math_fomula = cleaned_math_fomula[:10]
+                        # if len(cleaned_math_fomula) > 20:
+                        #     cleaned_math_fomula = cleaned_math_fomula[:20]
                         #Se retorna la lista de formulas
                         final_formulas = final_formulas + cleaned_math_fomula
                     except IndexError:

@@ -23,7 +23,9 @@ class Plots:
         plt.clf()
         plt.title("LaTeX plot")
         try:
-            if len(to_show) > 25:
+            if len(to_show) > 50:
+                plt.text(0.5, 0.5, to_show, usetex=True, fontsize=12, ha="center")
+            elif len(to_show) > 20 and len(to_show) < 50:
                 plt.text(0.5, 0.5, to_show, usetex=True, fontsize=20, ha="center")
             else:
                 plt.text(0.5, 0.5, to_show, usetex=True, fontsize=40, ha="center")
@@ -31,12 +33,7 @@ class Plots:
             plt.yticks([])
             archivos = os.listdir(f'Images_{self.busqueda.replace(" ","")}')
             if self.text+'.png' not in archivos:
-                try:
-                    plt.savefig(f'Images_{self.busqueda.replace(" ","")}/'+self.text.replace(" ","")+'.png',dpi=100)
-                except Exception:
-                    plt.savefig(f'Images_{self.busqueda.replace(" ","")}\\'+self.text.replace(" ","")+'.png',dpi=100)
-                else:
-                    raise Exception
+                plt.savefig(f'Images_{self.busqueda.replace(" ","")}/'+self.text+'.png',dpi=100)
         except Exception:
             print(f'Error en formula: {self.text}')
             pass
