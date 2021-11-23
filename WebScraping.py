@@ -74,6 +74,8 @@ class GetFormulas:
                                 if formula[0] != '\n':
                                     #Se remueve el displaystyle
                                     formula = formula.replace('\\displaystyle ','')
+                                    #Se remueve el sriptstyle
+                                    formula = formula.replace('\\scriptstyle ','')
                                     #Se crea una lista para guardar los caracteres de la formula
                                     new_formula = [chars for chars in formula]
                                     #Se remueve el primer caracter si es un espacio en blanco o un espacio vacio
@@ -115,19 +117,22 @@ class GetFormulas:
         #Primero, revisamos si es que ya existe un archivo con la informacion de las formulas
         archivos = os.listdir()
         #Se busca el archivo con las formulas
-        if f'.formulas_para_{self.to_search.lower().replace(" ","")}.txt\n' not in archivos:
+        if f'formulas_para_{self.to_search.lower().replace(" ","")}.txt\n' not in archivos:
             #Se crea el archivo
-            with open(f'.formulas_para_{self.to_search.lower().replace(" ","")}.txt','w') as new_file:
+            with open(f'formulas_para_{self.to_search.lower().replace(" ","")}.txt','w') as new_file:
                 #Se escribe primero cual fue la busqueda
                 new_file.write(f'BUSQUEDA:{self.to_search}\n')
                 #Se escribe la informacion en el archivo
                 #Como cada 10 formulas se cambia de link, también se informa de a que link pertencen
                 i = 0
                 k = 0
-                for formula in self.math_formulas:
-                    if i == 0 or i%10==0:
-                        new_file.write(f'FORMULAS OBTENIDAS DE:{self.getting_links[k]}\n')
-                        k += 1
-                    new_file.write(f'{formula}\n')
-                    i += 1
+                try:
+                    for formula in self.math_formulas:
+                        if i == 0 or i%10==0:
+                            new_file.write(f'FORMULAS OBTENIDAS DE:{self.getting_links[k]}\n')
+                            k += 1
+                        new_file.write(f'{formula}\n')
+                        i += 1
+                except IndexError:
+                    print('Error while execution. Index error')
                 new_file.close()

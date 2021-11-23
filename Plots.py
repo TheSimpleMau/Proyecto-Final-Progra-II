@@ -21,7 +21,7 @@ class Plots:
         to_show = '$'+self.text+'$' #self.text.replace(" ","")
         #Limpia la ventana de la grafica
         plt.clf()
-        plt.title("LaTeX plot")
+        plt.title(f"Busqueda: {self.busqueda}")
         try:
             if len(to_show) > 50:
                 plt.text(0.5, 0.5, to_show, usetex=True, fontsize=12, ha="center")
@@ -29,6 +29,7 @@ class Plots:
                 plt.text(0.5, 0.5, to_show, usetex=True, fontsize=20, ha="center")
             else:
                 plt.text(0.5, 0.5, to_show, usetex=True, fontsize=40, ha="center")
+            # plt.xlabel(f'Ecuacion en LaTeX:\n{self.text}')
             plt.xticks([])
             plt.yticks([])
             archivos = os.listdir(f'Images_{self.busqueda.replace(" ","")}')
