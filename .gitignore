@@ -5,3 +5,4 @@ venv/
 images/
 tests.py
 *.*.txt
+latex/
