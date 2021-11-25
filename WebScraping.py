@@ -19,16 +19,15 @@ from googlesearch import search
 
 class GetFormulas:
     #Al constructor se le pasa la formula que se quiere buscar
-    def __init__(self,to_search:str)->None:
+    def __init__(self,to_search:str,pregunta:str)->None:
         #Se guarda la formula que se quiere buscar
         self.to_search = to_search
         #Se obtienen los links de la formula
         self.getting_links = self.get_links()
         #Se guarda la informacion de la formula
         self.math_formulas = self.get_info()
-        #Se crea una archivo para guardar la informacion
-        pregunta = input('¿Desea guardar la informacion de las formulas en un archivo .txt? (y/n) ')
-        if pregunta == 'y':
+        #Si se desea, se guarda la informacion de las formualas en un archivo .txt
+        if pregunta == 'Si':
             self.file_with_formulas()
 
 
