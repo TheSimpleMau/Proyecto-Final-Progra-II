@@ -9,8 +9,6 @@ from WebScraping import *
 #Importamos el modulo tkinter para crear una interfaz bonita uwu
 from tkinter import *
 from tkinter import messagebox
-#Del modulo time, importamos sleep
-from time import sleep
 
 ########################
 ###Programa principal###

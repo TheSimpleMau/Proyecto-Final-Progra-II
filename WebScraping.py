@@ -38,7 +38,7 @@ class GetFormulas:
         #Se busca la formula en google con la funcion search
         #Esta función lo que hara es buscar la formula en google y obtener los links de Wikipedia en español
         #Obtendrá unicamente los primeros 10 links
-        for link in search(self.to_search+' wikipedia en español', tld='co.in', num=10, stop=10, pause=2):
+        for link in search(self.to_search, tld='com', num=10, stop=10, pause=2,lang='es'):
             links.append(link)
         return links
     
