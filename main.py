@@ -39,7 +39,7 @@ Si así lo desea, puede guardar todas las ecuciones en un archivo txt. Las ecuac
 El programa puede tardar en buscar y/o generar las imagenes, así que no se preocupe si se llega a trabar""")
 
 #Etiqueta para el titulo
-Titulo_etiqueta = Label(ventana, text="Programa facherito 😎", font=("Arial", 40), bg=bg)
+Titulo_etiqueta = Label(ventana, text="Programa facherito", font=("Arial", 40), bg=bg)
 Titulo_etiqueta.grid(row=0, column=0, columnspan=3)
 
 #Etiqueta para señalar la parte de busqueda
@@ -51,7 +51,7 @@ busqueda_texto = Entry(ventana, width=50)
 busqueda_texto.grid(row=1, column=1, columnspan=2)
 
 #Etiqueta para indicar si se quiere guardar en un archivo txt
-archivo_txt_etiqueta = Label(ventana, text="¿Desea generar un archivo .txt con\ntodos los archivos que encuentre?: ",font=("Arial", 20),bg=bg)
+archivo_txt_etiqueta = Label(ventana, text="Desea generar un archivo .txt con\ntodos los archivos que encuentre?: ",font=("Arial", 20),bg=bg)
 archivo_txt_etiqueta.grid(row=2, column=0)
 
 #Spinbox para indicar si se quiere guardar en un archivo txt
