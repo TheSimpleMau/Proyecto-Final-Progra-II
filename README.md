@@ -1,4 +1,4 @@
-# Finder of forumulas
+# Finder of formulas
 
 Have you ever wanted to just search a fourmla without scroling and scrolingo at wikipedia to find it?\\
 Don't say more, here is an easy searcher for formulas on wikipedia, you just need to type the name of the formula like in google and, like magic, it will apear.\\
